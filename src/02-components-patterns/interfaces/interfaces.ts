@@ -3,11 +3,17 @@ import { IProductImage } from "../components/ProductImage";
 import { IProductButtons } from "../components/ProductButtons";
 import { IProductTitle } from "../components/ProductTitle";
 
+export interface IOnChangeArgs {
+    product: Product;
+    counter: number;
+}
 export interface ProductCardProps {
     product: Product;
     children?: ReactElement | ReactElement[];
     className?: string;
-    style?: CSSProperties
+    style?: CSSProperties;
+    count?: number;
+    onChange?: (args: IOnChangeArgs) => void;
 }
 
 export interface Product {

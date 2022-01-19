@@ -15,8 +15,10 @@ export const ProductCard = ({
   product,
   className,
   style,
+  onChange,
+  count,
 }: ProductCardProps) => {
-  const { counter, increaseBy } = useProduct();
+  const { counter, increaseBy } = useProduct({ onChange, product, count });
 
   return (
     <Provider value={{ counter, increaseBy, product }}>
