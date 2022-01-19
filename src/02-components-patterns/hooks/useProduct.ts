@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Product, IOnChangeArgs } from "../interfaces/interfaces";
 
 interface IUseProduct {
@@ -10,15 +10,8 @@ interface IUseProduct {
 
 export const useProduct = ({ onChange, product, count = 0 }: IUseProduct) => {
     const [counter, setCounter] = useState(count);
-    const isControlled = useRef(!!onChange);
 
     const increaseBy = (value: number) => {
-
-        console.log(isControlled.current);
-
-        if (isControlled.current) {
-            return onChange!({ counter: value, product });
-        }
 
         // TODO: Esto impide que el número sea menor a 0
         const newValue = Math.max(counter + value, 0)
